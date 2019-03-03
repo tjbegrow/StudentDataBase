@@ -29,11 +29,11 @@ public:
 	virtual void PrintLastName();
 	virtual void PrintEmailAddress();
 	virtual void PrintAge();
-	virtual void PrintDaysToCompleteAll();
+	//virtual void PrintDaysToCompleteAll();
 	virtual void PrintDaysToComplete1();
 	virtual void PrintDaysToComplete2();
 	virtual void PrintDaysToComplete3();
-	virtual void PrintDegreeType();
+	virtual void PrintDegreeType(degreeTypes degree);
 
 private:
 	

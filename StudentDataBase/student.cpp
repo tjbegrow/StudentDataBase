@@ -60,7 +60,6 @@ string student::GetFirstName() const {
 string student::GetLastName() const {
 	return lastName;
 }
-
 string student::GetEmailAddress() const {
 	return emailAddress;
 }
@@ -77,43 +76,51 @@ degreeTypes student::GetDegreeProgram() {
 //Student class virtual print
 
 void student::PrintStudentID() {
-	cout << "Student ID: " << studentID << endl; 
+	cout << studentID;
 }
 void student::PrintFirstName() {
-	cout << firstName << endl;
+	cout << firstName;
 }
 void student::PrintLastName() {
-	cout << lastName << endl;
+	cout << lastName;
 }
 void student::PrintEmailAddress() {
-	cout << emailAddress << endl;
+	cout << emailAddress;
 }
 void student::PrintAge() {
-	cout << age << endl;
+	cout << age;
 }
-void student::PrintDaysToCompleteAll() {
+/*void student::PrintDaysToCompleteAll() {
 	for (unsigned int i = 0; i < 3; ++i) {
 		switch (i) {
 		case 0:
 			cout << "First Class: " << daysToComplete[i];
+			break;
 		case 1:
 			cout << "Second Class: " << daysToComplete[i];
+			break;
 		case 2:
 			cout << "Thrid Class: " << daysToComplete[i];
-		default:
-			cout << "Error: Too many classes";
+			break;
 		}
 	}
-}
+}*/
 void student::PrintDaysToComplete1() {
-	cout << "First Class: " << daysToComplete[0] << endl;
+	cout << daysToComplete[0];
 }
 void student::PrintDaysToComplete2() {
-	cout << "Second Class: " << daysToComplete[1] << endl;
+	cout << daysToComplete[1];
 }
 void student::PrintDaysToComplete3() {
-	cout << "Thrid Class: " << daysToComplete[2] << endl;
+	cout << daysToComplete[2];
 }
-void student::PrintDegreeType() {
-	cout << "Degree Program: " << degree << endl;
+void student::PrintDegreeType(degreeTypes degree) {
+	switch (degree) {
+		case 0: cout << "Security";
+			break;
+		case 1: cout << "Network";
+			break;
+		case 2: cout << "Software";
+			break;
+	}
 }

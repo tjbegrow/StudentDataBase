@@ -21,12 +21,8 @@ classRosterArray[3] = nullptr;
 classRosterArray[4] = nullptr;
 }
 
-
-
-
 void roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, degreeTypes degree) {
 	if (classRosterArray[0] == nullptr) {
-
 		if (degree == NETWORK) {
 			networkStudent* student1;
 			student1 = new networkStudent;
@@ -38,8 +34,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[0]->SetAge(age);
 			classRosterArray[0]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[0]->SetDegreeType(degree);
-
-			
 		}
 		else if (degree == SECURITY) {
 			securityStudent* student1;
@@ -78,8 +72,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[1]->SetAge(age);
 			classRosterArray[1]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[1]->SetDegreeType(degree);
-
-			cout << classRosterArray[1]->GetDegreeProgram() << endl;
 		}
 		else if (degree == SECURITY) {
 			securityStudent* student2;
@@ -92,8 +84,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[1]->SetAge(age);
 			classRosterArray[1]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[1]->SetDegreeType(degree);
-
-			cout << classRosterArray[1]->GetDegreeProgram() << endl;
 		}
 		else {
 			softwareStudent* student2;
@@ -106,8 +96,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[1]->SetAge(age);
 			classRosterArray[1]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[1]->SetDegreeType(degree);
-
-			cout << classRosterArray[1]->GetDegreeProgram() << endl;
 		} 
 		//call constructor for student
 		//test degree type perm
@@ -125,8 +113,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[2]->SetAge(age);
 			classRosterArray[2]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[2]->SetDegreeType(degree);
-
-			cout << classRosterArray[2]->GetDegreeProgram() << endl;
 		}
 		else if (degree == SECURITY) {
 			securityStudent* student3;
@@ -139,8 +125,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[2]->SetAge(age);
 			classRosterArray[2]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[2]->SetDegreeType(degree);
-
-			cout << classRosterArray[2]->GetDegreeProgram() << endl;
 		}
 		else {
 			softwareStudent* student3;
@@ -153,8 +137,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[2]->SetAge(age);
 			classRosterArray[2]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[2]->SetDegreeType(degree);
-
-			cout << classRosterArray[2]->GetDegreeProgram() << endl;
 		}
 		//call constructor for student
 		//test degree type perm
@@ -172,8 +154,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[3]->SetAge(age);
 			classRosterArray[3]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[3]->SetDegreeType(degree);
-
-			cout << classRosterArray[3]->GetDegreeProgram() << endl;
 		}
 		else if (degree == SECURITY) {
 			securityStudent* student4;
@@ -186,8 +166,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[3]->SetAge(age);
 			classRosterArray[3]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[3]->SetDegreeType(degree);
-
-			cout << classRosterArray[3]->GetDegreeProgram() << endl;
 		}
 		else {
 			softwareStudent* student4;
@@ -200,8 +178,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[3]->SetAge(age);
 			classRosterArray[3]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[3]->SetDegreeType(degree);
-
-			cout << classRosterArray[3]->GetDegreeProgram() << endl;
 		}
 	}
 	else {
@@ -217,8 +193,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[4]->SetAge(age);
 			classRosterArray[4]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[4]->SetDegreeType(degree);
-
-			cout << classRosterArray[4]->GetDegreeProgram() << endl;
 		}
 		else if (degree == SECURITY) {
 			securityStudent* student5;
@@ -231,8 +205,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[4]->SetAge(age);
 			classRosterArray[4]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[4]->SetDegreeType(degree);
-
-			cout << classRosterArray[4]->GetDegreeProgram() << endl;
 		}
 		else {
 			softwareStudent* student5;
@@ -245,8 +217,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[4]->SetAge(age);
 			classRosterArray[4]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[4]->SetDegreeType(degree);
-
-			cout << classRosterArray[4]->GetDegreeProgram() << endl;
 		}
 	//call constructor for student
 	//test degree type perm
@@ -258,8 +228,24 @@ void remove(string studentID) {
 }
 
 void roster::printAll() {
-	 // tried to print anything other than classRosterArray[4] throws memory exception... also doesn't print the value... or prints wrong value...
-	
+	for (unsigned int i = 0; i < size(classRosterArray); i++) {
+		classRosterArray[i]->PrintStudentID();
+		cout << "   First Name: ";
+		classRosterArray[i]->PrintFirstName();
+		cout << "   Last Name: " ;
+		classRosterArray[i]->PrintLastName();
+		cout << "   Age: ";
+		classRosterArray[i]->PrintAge();
+		cout << "   daysInCourse: {";
+		classRosterArray[i]->PrintDaysToComplete1();
+		cout << ", ";
+		classRosterArray[i]->PrintDaysToComplete2();
+		cout << ", ";
+		classRosterArray[i]->PrintDaysToComplete3();
+		cout << "} ";
+		classRosterArray[i]->PrintDegreeType(classRosterArray[i]->GetDegreeProgram());
+		cout << endl;
+	}
 }
 
 void roster::printDaysInCourse(string studentID) {
@@ -278,8 +264,6 @@ void roster::printByDegreeProgram(int degreeProgram) {
 
  int main() {
 	 roster classRoster;
-	 
-
 	 const string studentData[] =
 	 { "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
 	 "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
@@ -292,37 +276,34 @@ void roster::printByDegreeProgram(int degreeProgram) {
 	for (unsigned int i = 0; i < size(studentData); i++) { 
 		string studentAtt[9];
 		istringstream studentRaw(studentData[i]);
-		string cell;
+		string* cell;
+		cell = new string;
 		for( unsigned int j = 0; j < 9; j++) {
-			getline(studentRaw, cell, ',');
-			studentAtt[j] = cell;
-			cout << studentAtt[j] << endl;
+			getline(studentRaw, *cell, ',');
+			studentAtt[j] = *cell;
 		} 
-		 string studID = studentAtt[0];
-		 string firstNm = studentAtt[1];
-		 string LastNm = studentAtt[2];
-		 string eMail = studentAtt[3];
-		 int age = stoi(studentAtt[4]);
-		 int dIC1 = stoi(studentAtt[5]);
-		 int dIC2 = stoi(studentAtt[6]);
-		 int dIC3 = stoi(studentAtt[7]);
-		 
-			 degreeTypes degree = NETWORK;
-
-			
-			 if (studentAtt[8] == "SOFTWARE") { //FIX ME THIS IF STATMENT ISN'T WORKING... so all the objects are only being created as networkStudent
-				 degree = SOFTWARE;
-			 }
-			 else if (studentAtt[8] == "NETWORK") {
-				 degree = NETWORK;
-			 }
-			 else {
-				 degree = SECURITY;
-			 }
-			 
+		delete cell;
+		string studID = studentAtt[0];
+		string firstNm = studentAtt[1];
+		string LastNm = studentAtt[2];
+		string eMail = studentAtt[3];
+		int age = stoi(studentAtt[4]);
+		int dIC1 = stoi(studentAtt[5]);
+		int dIC2 = stoi(studentAtt[6]);
+		int dIC3 = stoi(studentAtt[7]);
+		degreeTypes degree = NETWORK;
+	
+		if (studentAtt[8] == "SOFTWARE") { 
+			degree = SOFTWARE;
+		}
+		else if (studentAtt[8] == "NETWORK") {
+			degree = NETWORK;
+		}
+		else {
+			degree = SECURITY;
+		}
+	
 		 classRoster.add(studID, firstNm, LastNm, eMail, age, dIC1, dIC2, dIC3, degree);
-		
-		 
 	 };
 
 	classRoster.printAll();
