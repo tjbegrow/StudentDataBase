@@ -223,33 +223,42 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 	}
 }
 
-void remove(string studentID) {
+void roster::remove(string studentID) {
 	
-}
+	for (unsigned int i = 0; i < 5; i++) {
+			if (classRosterArray[i]->GetStudentID() == studentID) {
+				delete classRosterArray[i];
+				classRosterArray[i] = nullptr;
+				cout << studentID << " deleted." << endl; // shift elements to fill hole... reduce errors. 
+			}
+		}
+	}
+
+
+
 
 void roster::printAll() {
-	for (unsigned int i = 0; i < size(classRosterArray); i++) {
-		classRosterArray[i]->PrintStudentID();
-		cout << "   First Name: ";
-		classRosterArray[i]->PrintFirstName();
-		cout << "   Last Name: " ;
-		classRosterArray[i]->PrintLastName();
-		cout << "   Age: ";
-		classRosterArray[i]->PrintAge();
-		cout << "   daysInCourse: {";
-		classRosterArray[i]->PrintDaysToComplete1();
-		cout << ", ";
-		classRosterArray[i]->PrintDaysToComplete2();
-		cout << ", ";
-		classRosterArray[i]->PrintDaysToComplete3();
-		cout << "} ";
-		classRosterArray[i]->PrintDegreeType(classRosterArray[i]->GetDegreeProgram());
-		cout << endl;
+	for (unsigned int i = 0; i < size(classRosterArray); i++) { 
+			classRosterArray[i]->PrintStudentID();
+			cout << "   First Name: ";
+			classRosterArray[i]->PrintFirstName();
+			cout << "   Last Name: ";
+			classRosterArray[i]->PrintLastName();
+			cout << "   Age: ";
+			classRosterArray[i]->PrintAge();
+			cout << "   daysInCourse: {";
+			classRosterArray[i]->PrintDaysToComplete1();
+			cout << ", ";
+			classRosterArray[i]->PrintDaysToComplete2();
+			cout << ", ";
+			classRosterArray[i]->PrintDaysToComplete3();
+			cout << "} ";
+			classRosterArray[i]->PrintDegreeType(classRosterArray[i]->GetDegreeProgram());
+			cout << endl;
 	}
 }
 
 void roster::printDaysInCourse(string studentID) {
-
 }
 
 void roster::printInvalidEmails() {
@@ -274,10 +283,9 @@ void roster::printByDegreeProgram(int degreeProgram) {
 	 //Parse string and create objects of students
 
 	for (unsigned int i = 0; i < size(studentData); i++) { 
-		string studentAtt[9];
+		string* studentAtt = new string[9];
+		string* cell = new string;
 		istringstream studentRaw(studentData[i]);
-		string* cell;
-		cell = new string;
 		for( unsigned int j = 0; j < 9; j++) {
 			getline(studentRaw, *cell, ',');
 			studentAtt[j] = *cell;
@@ -302,10 +310,12 @@ void roster::printByDegreeProgram(int degreeProgram) {
 		else {
 			degree = SECURITY;
 		}
-	
+		delete [] studentAtt;
 		 classRoster.add(studID, firstNm, LastNm, eMail, age, dIC1, dIC2, dIC3, degree);
 	 };
 
 	classRoster.printAll();
+	classRoster.remove("A3");
+	//classRoster.remove("A3");
 	 return 0;
 }
