@@ -21,6 +21,15 @@ classRosterArray[3] = nullptr;
 classRosterArray[4] = nullptr;
 }
 
+roster::~roster() {
+	delete classRosterArray[0];
+	delete classRosterArray[1];
+	delete classRosterArray[2];
+	delete classRosterArray[3];
+	delete classRosterArray[4];
+	cout << "Destructor";
+}
+
 void roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, degreeTypes degree) {
 	if (classRosterArray[0] == nullptr) {
 		if (degree == NETWORK) {
@@ -224,15 +233,21 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 }
 
 void roster::remove(string studentID) {
-	
-	for (unsigned int i = 0; i < 5; i++) {
+
+	for (unsigned int i = 0; i < size(classRosterArray); i++) {
+		if (classRosterArray[i] != nullptr) {
 			if (classRosterArray[i]->GetStudentID() == studentID) {
 				delete classRosterArray[i];
 				classRosterArray[i] = nullptr;
 				cout << studentID << " deleted." << endl; // shift elements to fill hole... reduce errors. 
+				i = size(classRosterArray) + 1;
 			}
 		}
+		else {
+			cout << "Error: Student doesn't exist" << endl;
+		}
 	}
+}
 
 
 
@@ -265,13 +280,18 @@ void roster::printInvalidEmails() {
 
 }
 
-void roster::printByDegreeProgram(int degreeProgram) {
+void roster::printByDegreeProgram(degreeTypes degreeProgram) {
 
 
 }
  
 
  int main() {
+	 cout << "Scripting and Programing - Applications - C867" << endl;
+	 cout << "Programing : C++" << endl;
+	 cout << "Student ID: 000912409" << endl;
+	 cout << "Name: Tyler J. Begrow" << endl << endl;
+
 	 roster classRoster;
 	 const string studentData[] =
 	 { "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
@@ -316,6 +336,6 @@ void roster::printByDegreeProgram(int degreeProgram) {
 
 	classRoster.printAll();
 	classRoster.remove("A3");
-	//classRoster.remove("A3");
+	classRoster.remove("A3");
 	 return 0;
 }
