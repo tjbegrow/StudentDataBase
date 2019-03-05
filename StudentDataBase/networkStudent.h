@@ -4,8 +4,8 @@ class networkStudent : public student {
 	public:
 		networkStudent();
 		~networkStudent();
-		degreeTypes GetDegreeProgram();
+		degreeProgram GetDegreeProgram();
 	private:
-		degreeTypes degree;
+		degreeProgram degree;
 };
 

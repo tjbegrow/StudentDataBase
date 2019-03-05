@@ -9,6 +9,6 @@ securityStudent::~securityStudent() {
 
 }
 
-degreeTypes securityStudent::GetDegreeProgram() {
+degreeProgram securityStudent::GetDegreeProgram() {
 	return degree;
 }

@@ -9,6 +9,6 @@ softwareStudent::~softwareStudent(){
 
 }
 
-degreeTypes softwareStudent::GetDegreeProgram() {
+degreeProgram softwareStudent::GetDegreeProgram() {
 	return degree;
 }

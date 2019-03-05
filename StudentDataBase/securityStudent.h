@@ -5,8 +5,8 @@ class securityStudent: public student {
 	public:
 		securityStudent();
 		~securityStudent();
-		degreeTypes GetDegreeProgram();
+		degreeProgram GetDegreeProgram();
 	private:
-		degreeTypes degree;
+		degreeProgram degree;
 };
 

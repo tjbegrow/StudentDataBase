@@ -6,11 +6,8 @@
 #include "roster.h"
 #include <iostream>
 #include <string>
-#include <vector>
 #include <sstream>
-#include <cstdlib>
-#include <algorithm>
-#include <stdlib.h> 
+#include <math.h>
 using namespace std;
 
 roster::roster() {
@@ -27,10 +24,10 @@ roster::~roster() {
 	delete classRosterArray[2];
 	delete classRosterArray[3];
 	delete classRosterArray[4];
-	cout << "Destructor";
 }
 
-void roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, degreeTypes degree) {
+void roster::add(string studentID, string firstName, string lastName, string emailAddress, int age,
+	int daysInCourse1, int daysInCourse2, int daysInCourse3, degreeProgram degree) {
 	if (classRosterArray[0] == nullptr) {
 		if (degree == NETWORK) {
 			networkStudent* student1;
@@ -106,8 +103,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[1]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[1]->SetDegreeType(degree);
 		} 
-		//call constructor for student
-		//test degree type perm
 	}
 	else if (classRosterArray[2] == nullptr) {
 
@@ -147,11 +142,8 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[2]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[2]->SetDegreeType(degree);
 		}
-		//call constructor for student
-		//test degree type perm
 	}
 	else if (classRosterArray[3] == nullptr) {
-
 		if (degree == NETWORK) {
 			networkStudent* student4;
 			student4 = new networkStudent;
@@ -190,7 +182,6 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 		}
 	}
 	else {
-
 		if (degree == NETWORK) {
 			networkStudent* student5;
 			student5 = new networkStudent;
@@ -227,19 +218,16 @@ void roster::add(string studentID, string firstName, string lastName, string ema
 			classRosterArray[4]->SetDaysToComplete(daysInCourse1, daysInCourse2, daysInCourse3);
 			classRosterArray[4]->SetDegreeType(degree);
 		}
-	//call constructor for student
-	//test degree type perm
 	}
 }
 
 void roster::remove(string studentID) {
-
 	for (unsigned int i = 0; i < size(classRosterArray); i++) {
 		if (classRosterArray[i] != nullptr) {
 			if (classRosterArray[i]->GetStudentID() == studentID) {
 				delete classRosterArray[i];
 				classRosterArray[i] = nullptr;
-				cout << studentID << " deleted." << endl; // shift elements to fill hole... reduce errors. 
+				cout << studentID << " deleted." << endl; 
 				i = size(classRosterArray) + 1;
 			}
 		}
@@ -248,9 +236,6 @@ void roster::remove(string studentID) {
 		}
 	}
 }
-
-
-
 
 void roster::printAll() {
 	for (unsigned int i = 0; i < size(classRosterArray); i++) { 
@@ -273,34 +258,74 @@ void roster::printAll() {
 	}
 }
 
-void roster::printDaysInCourse(string studentID) {
+void roster::printAverageDaysInCourse(string studentID) {
+	for (unsigned int i = 0; i < size(classRosterArray); i++) {
+		if (classRosterArray[i]->GetStudentID() == studentID) {
+			int class1 = classRosterArray[i]->GetDaysToComplete(0);
+			int class2 = classRosterArray[i]->GetDaysToComplete(1);
+			int class3 = classRosterArray[i]->GetDaysToComplete(2);
+			double average = (class1 + class2 + class3) / 3;
+			average = ceil(average);
+			cout << classRosterArray[i]->GetStudentID() << "'s average days in the three course is " 
+				<< average << "." << endl;
+			i = size(classRosterArray) + 1;
+		}
+	}
 }
 
 void roster::printInvalidEmails() {
-
+	for (unsigned int i = 0; i < size(classRosterArray); i++) {
+		string toCheck = classRosterArray[i]->GetEmailAddress();
+		if (toCheck.find('@') == std::string::npos) {
+			cout << "Invaild: " << toCheck << endl;
+		}
+		if (toCheck.find('.') == std::string::npos) {
+			cout << "Invaild: " << toCheck << endl;
+		}
+		if (toCheck.find(' ') != std::string::npos) {
+			cout << "Invaild: " << toCheck << endl;
+		}
+	}
 }
 
-void roster::printByDegreeProgram(degreeTypes degreeProgram) {
-
-
+void roster::printByDegreeProgram(degreeProgram degreeProgram) {
+	for (unsigned int i = 0; i < size(classRosterArray); i++) {
+		if (classRosterArray[i]->GetDegreeProgram() == degreeProgram) {
+			classRosterArray[i]->PrintStudentID();
+			cout << "   First Name: ";
+			classRosterArray[i]->PrintFirstName();
+			cout << "   Last Name: ";
+			classRosterArray[i]->PrintLastName();
+			cout << "   Age: ";
+			classRosterArray[i]->PrintAge();
+			cout << "   daysInCourse: {";
+			classRosterArray[i]->PrintDaysToComplete1();
+			cout << ", ";
+			classRosterArray[i]->PrintDaysToComplete2();
+			cout << ", ";
+			classRosterArray[i]->PrintDaysToComplete3();
+			cout << "} ";
+			classRosterArray[i]->PrintDegreeType(classRosterArray[i]->GetDegreeProgram());
+			cout << endl;
+		}
+	}
 }
- 
 
- int main() {
-	 cout << "Scripting and Programing - Applications - C867" << endl;
-	 cout << "Programing : C++" << endl;
-	 cout << "Student ID: 000912409" << endl;
-	 cout << "Name: Tyler J. Begrow" << endl << endl;
+int main() {
+	cout << "Scripting and Programing - Applications - C867" << endl;
+	cout << "Programing : C++" << endl;
+	cout << "Student ID: 000912409" << endl;
+	cout << "Name: Tyler J. Begrow" << endl << endl;
 
-	 roster classRoster;
-	 const string studentData[] =
-	 { "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
-	 "A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
-	 "A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
-	 "A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
-	 "A5,Tyler,Begrow,tbegrow@wgu.edu,26,25,68,33,SOFTWARE", };
+	roster classRoster;
+	const string studentData[] =
+	{ "A1,John,Smith,John1989@gm ail.com,20,30,35,40,SECURITY",
+	"A2,Suzan,Erickson,Erickson_1990@gmailcom,19,50,30,40,NETWORK",
+	"A3,Jack,Napoli,The_lawyer99yahoo.com,19,20,40,33,SOFTWARE",
+	"A4,Erin,Black,Erin.black@comcast.net,22,50,58,40,SECURITY",
+	"A5,Tyler,Begrow,tbegrow@wgu.edu,26,25,68,33,SOFTWARE", };
 
-	 //Parse string and create objects of students
+	//Parse string and create objects of students
 
 	for (unsigned int i = 0; i < size(studentData); i++) { 
 		string* studentAtt = new string[9];
@@ -319,7 +344,7 @@ void roster::printByDegreeProgram(degreeTypes degreeProgram) {
 		int dIC1 = stoi(studentAtt[5]);
 		int dIC2 = stoi(studentAtt[6]);
 		int dIC3 = stoi(studentAtt[7]);
-		degreeTypes degree = NETWORK;
+		degreeProgram degree = NETWORK;
 	
 		if (studentAtt[8] == "SOFTWARE") { 
 			degree = SOFTWARE;
@@ -334,8 +359,12 @@ void roster::printByDegreeProgram(degreeTypes degreeProgram) {
 		 classRoster.add(studID, firstNm, LastNm, eMail, age, dIC1, dIC2, dIC3, degree);
 	 };
 
-	classRoster.printAll();
-	classRoster.remove("A3");
-	classRoster.remove("A3");
-	 return 0;
+	classRoster.printAll(); //Prints all data for each student
+	classRoster.printInvalidEmails(); // Prints all invalid emails
+	classRoster.printAverageDaysInCourse("A1"); //Prints average days from the three classes by student ID
+	classRoster.printByDegreeProgram(SOFTWARE); //Prints all data for Software Students Only
+	classRoster.remove("A3"); //Deletes data by student ID A3
+	classRoster.remove("A3"); //Throws error because student ID A3 was already deleted. 
+	
+	return 0;
 }

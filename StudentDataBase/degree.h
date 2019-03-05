@@ -1,7 +1,7 @@
 #pragma once
 
 ;
-enum degreeTypes { SECURITY, NETWORK, SOFTWARE };
+enum degreeProgram { SECURITY, NETWORK, SOFTWARE };
 
 
 

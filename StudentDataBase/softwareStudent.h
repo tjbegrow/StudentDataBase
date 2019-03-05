@@ -5,8 +5,8 @@ class softwareStudent: public student {
 	public:
 		softwareStudent();
 		~softwareStudent();
-		degreeTypes GetDegreeProgram();
+		degreeProgram GetDegreeProgram();
 	private:
-		degreeTypes degree;
+		degreeProgram degree;
 };
 

@@ -14,7 +14,7 @@ public:
 	void SetEmailAddress(string eAddress);
 	void SetAge(int yearsOnPlanet);
 	void SetDaysToComplete(int course1, int course2, int course3);
-	void SetDegreeType(degreeTypes degreeChoice);
+	void SetDegreeType(degreeProgram degreeChoice);
 	
 	string GetStudentID() const;
 	string GetFirstName() const;
@@ -22,7 +22,7 @@ public:
 	string GetEmailAddress() const;
 	int GetAge() const;
 	int GetDaysToComplete(int index) const;
-	virtual degreeTypes GetDegreeProgram();
+	virtual degreeProgram GetDegreeProgram();
 
 	virtual void PrintStudentID();
 	virtual void PrintFirstName();
@@ -33,7 +33,7 @@ public:
 	virtual void PrintDaysToComplete1();
 	virtual void PrintDaysToComplete2();
 	virtual void PrintDaysToComplete3();
-	virtual void PrintDegreeType(degreeTypes degree);
+	virtual void PrintDegreeType(degreeProgram degree);
 
 private:
 	
@@ -43,7 +43,7 @@ private:
 	string emailAddress;
 	int age;
 	int daysToComplete[3];
-	degreeTypes degree;
+	degreeProgram degree;
 };
 
 

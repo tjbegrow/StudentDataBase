@@ -45,7 +45,7 @@ void student::SetDaysToComplete(int course1, int course2, int course3) {
 	daysToComplete[2] = course3;
 	return;
 }
-void student::SetDegreeType(degreeTypes degreeChoice) {
+void student::SetDegreeType(degreeProgram degreeChoice) {
 	degree = degreeChoice;
 	return;
 }
@@ -69,7 +69,7 @@ int student::GetAge() const {
 int student::GetDaysToComplete(int index) const {
 	return daysToComplete[index];
 }
-degreeTypes student::GetDegreeProgram() {
+degreeProgram student::GetDegreeProgram() {
 	return degree;
 }
 
@@ -114,7 +114,7 @@ void student::PrintDaysToComplete2() {
 void student::PrintDaysToComplete3() {
 	cout << daysToComplete[2];
 }
-void student::PrintDegreeType(degreeTypes degree) {
+void student::PrintDegreeType(degreeProgram degree) {
 	switch (degree) {
 		case 0: cout << "Security";
 			break;

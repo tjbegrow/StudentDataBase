@@ -9,6 +9,6 @@ networkStudent::~networkStudent() {
 
 }
 
-degreeTypes networkStudent::GetDegreeProgram() {
+degreeProgram networkStudent::GetDegreeProgram() {
 	return degree;
 }
